@@ -751,6 +751,17 @@ public class QueryMapperUnitTests {
 		assertThat(document).containsKey("outerMap.1.map.2.stringProperty");
 	}
 
+	@Test // GH-3688
+	void mappingShouldAllowSettingEntireNestedNumericKeyedMapValue() {
+
+		Query query = query(where("outerMap.1.map").is(null)); //newEntityWithComplexValueTypeMap()
+
+		org.bson.Document document = mapper.getMappedObject(query.getQueryObject(),
+				context.getPersistentEntity(EntityWithIntKeyedMapOfMap.class));
+
+		assertThat(document).containsKey("outerMap.1.map");
+	}
+
 	@Test // DATAMONGO-1269
 	void mappingShouldRetainNumericPositionInList() {
 

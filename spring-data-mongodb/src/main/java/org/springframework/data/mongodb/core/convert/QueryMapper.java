@@ -1392,13 +1392,13 @@ public class QueryMapper {
 					String partial = iterator.next();
 					currentIndex++;
 
-					boolean isPositional = isPositionalParameter(partial) && property.isCollectionLike() ;
-					if(property.isMap() && currentPropertyRoot.equals(partial)){
+					boolean isPositional = isPositionalParameter(partial) && property.isCollectionLike();
+					if(property.isMap() && currentPropertyRoot.equals(partial) && iterator.hasNext()){
 						partial = iterator.next();
 						currentIndex++;
 					}
 
-					if (isPositional || property.isMap()) {
+					if (isPositional || property.isMap() && iterator.hasNext()) {
 						mappedName.append(".").append(partial);
 					}
 
