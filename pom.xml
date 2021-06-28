@@ -5,7 +5,7 @@
 
 	<groupId>org.springframework.data</groupId>
 	<artifactId>spring-data-mongodb-parent</artifactId>
-	<version>3.2.2</version>
+	<version>3.2.2-hotfix-numeric-map-keys</version>
 	<packaging>pom</packaging>
 
 	<name>Spring Data MongoDB</name>
@@ -121,6 +121,7 @@
 				<module>spring-data-mongodb-benchmarks</module>
 			</modules>
 		</profile>
+
 	</profiles>
 
 	<dependencies>
@@ -159,5 +160,12 @@
 			<url>https://repo.spring.io/libs-milestone</url>
 		</pluginRepository>
 	</pluginRepositories>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Maven Packages</name>
+			<url>https://maven.pkg.github.com/dajulia3/spring-data-mongodb</url>
+		</repository>
+	</distributionManagement>
 
 </project>
