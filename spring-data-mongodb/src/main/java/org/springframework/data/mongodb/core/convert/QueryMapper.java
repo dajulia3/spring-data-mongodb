@@ -1398,7 +1398,7 @@ public class QueryMapper {
 						currentIndex++;
 					}
 
-					if (isPositional || property.isMap() && iterator.hasNext()) {
+					if (isPositional || property.isMap() && !currentPropertyRoot.equals(partial)) {
 						mappedName.append(".").append(partial);
 					}
 
